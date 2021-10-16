@@ -57,7 +57,7 @@ char *appendstr(char* s, int n, char* d){
     return d;
 }
 
-int recurs(char* s,  char* f, int t){
+int recurs(char* s,  char* f){
     int i = 0;
     char *buf;
     char *p;
@@ -82,7 +82,7 @@ int recurs(char* s,  char* f, int t){
         p = (char*) malloc(strlen(s) -1);
         buf = appendstr(s,i,buf);
         p = copystr(s,i,p);
-        recurs(p,buf,t +1 );
+        recurs(p,buf);
         i++;
     }
 
@@ -96,7 +96,7 @@ int main(int arc, char **argv)
     if (arc > 1){
 
         s = found(argv[1]);
-        recurs(s,NULL,0);
+        recurs(s,NULL);
 
     }
     return (0);
