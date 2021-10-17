@@ -3,33 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int exist(char *s,char a){
-    int i = 0;
-    while(s[i] != '\0'){
-        if (s[i] == a){
-            return 1;
-        }
-        i++;
-    }
-    return 0;
-}
-char * found(char * s){
-    char * f;
-    int i = 0;
-    int j = 0;
-
-    f = (char *)malloc(strlen(s)+1);
-    f[0] = '\0';
-    while(s[i]!= '\0'){
-        if (exist(f,s[i]) == 0){
-            f[j] = s[i];
-            f[j+1] = '\0';
-            j++;
-        }
-        i++;
-    }
-    return f;
-}
 
 char *copystr( char* s, int n, char* d){
     int i = 0;
@@ -94,9 +67,7 @@ int main(int arc, char **argv)
     int		num;
     char *s;
     if (arc > 1){
-
-        s = found(argv[1]);
-        recurs(s,NULL);
+        recurs(argv[1],NULL);
 
     }
     return (0);
