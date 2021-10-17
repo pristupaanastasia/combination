@@ -29,7 +29,16 @@ char *appendstr(char* s, int n, char* d){
 
     return d;
 }
+char *strcopy(char* dst, char* src){
+    int i = 0;
+    while (src[i] != '\0' ){
+         dst[i] = src[i];
+         i++;
+    }
 
+    dst[i] = '\0';
+    return dst;
+}
 int recurs(char* s,  char* f){
     int i = 0;
     char *buf;
@@ -51,7 +60,7 @@ int recurs(char* s,  char* f){
     while( s[i]!='\0' && strlen(s) >i){
 
         buf = (char*)malloc(strlen(f)+1);
-        buf = strcpy(buf,f);
+        buf = strcopy(buf,f);
         p = (char*) malloc(strlen(s) -1);
         buf = appendstr(s,i,buf);
         p = copystr(s,i,p);
